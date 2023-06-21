@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Stardew';
+    src: url(../font/Stardew-Valley-All-Caps.ttf);
+}
+@font-face {
+    font-family: 'padrao';
+    src: url(../font/StardewValley.otf);
+}
+
+html {
+    font-family: 'padrao';
+}
+
+/* tela de inicio */
+.tela_inicio {
+    background-image: url(../img/fundo_inicio.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+}
+.campos {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 150px;
+    display: flex;
+    flex-direction: column;
+}
+.campos h1 {
+    font-family: 'Stardew';
+    color: #E0A100;
+    font-weight: bolder;
+    font-size: 80px;
+    text-shadow: 0 0 10px black;
+}
+.campos button {
+    width: 30%;
+    margin: 100px auto 0 auto;
+    background-color: #FFBC6E;
+    border: 10px solid #AF5B14;
+    font-family: 'padrao';
+    font-size: 50px;
+    cursor: pointer;
+}

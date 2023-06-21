@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@font-face {
+    font-family: 'Stardew';
+    src: url(../font/Stardew\ Valley\ Regular.ttf);
+}
 
 
 html {
