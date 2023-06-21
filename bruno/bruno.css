@@ -2,6 +2,7 @@
     font-family: 'Stardew';
     src: url(../font/Stardew-Valley-All-Caps.ttf);
 }
+
 @font-face {
     font-family: 'padrao';
     src: url(../font/StardewValley.otf);
@@ -11,6 +12,42 @@ html {
     font-family: 'padrao';
 }
 
+.ipts {
+    width: 50%;
+    margin: auto;
+    border: 10px solid #AF5B14;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: #d69d5b;
+    font-family: 'padrao';
+    font-size: 30px;
+    text-align: center;
+    transition: .3s;
+    outline: none;
+}
+.ipts:focus {
+    transform: scale(1.05);
+    transition: .3s;
+}
+
+.btns {
+    width: 50%;
+    margin: 10px auto;
+    border: 10px solid #AF5B14;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: #d69d5b;
+    font-family: 'padrao';
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btns:hover {
+    transform: scale(1.05);
+    transition: .3s;
+}
 /* tela de inicio */
 #tela_inicio {
     background-image: url(../img/fundo_inicio.jpg);
@@ -19,6 +56,7 @@ html {
     width: 100%;
     height: 100vh;
 }
+
 #campos_inicio {
     width: 60%;
     margin: 0 auto;
@@ -27,6 +65,7 @@ html {
     display: flex;
     flex-direction: column;
 }
+
 #campos_inicio h1 {
     font-family: 'Stardew';
     color: #E0A100;
@@ -34,6 +73,7 @@ html {
     font-size: 80px;
     text-shadow: 0 0 10px black;
 }
+
 #campos_inicio button {
     width: 30%;
     margin: 100px auto 0 auto;
@@ -49,6 +89,7 @@ html {
     display: none;
     padding-top: 200px;
 }
+
 #campos_quest {
     width: 30%;
     padding: 20px 0;
@@ -62,37 +103,70 @@ html {
     text-transform: uppercase;
 
 }
-#campos_quest input {
-    width: 50%;
-    margin: auto;
-    border: 10px solid #AF5B14;
-    border-radius: 20px;
-    padding: 5px 10px;
-    background-color: #d69d5b;
-    font-family: 'padrao';
-    font-size: 30px;
+
+/* nome cavalos */
+#nomeCavalos {
+    
+    display: none;
+    padding-top: 100px;
+}
+.space {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    margin: 0 auto;
+}
+
+#campo_nomes {
+    width: 30%;
+    height: 100%;
+    padding: 20px 0;
+    margin: 0 auto;
     text-align: center;
-    transition: .3s;
-    outline: none;
-}
-#campos_quest button {
-    width: 50%;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFBC6E;
     border: 10px solid #AF5B14;
-    border-radius: 20px;
-    padding: 5px 10px;
-    background-color: #d69d5b;
-    font-family: 'padrao';
     font-size: 30px;
+    text-transform: uppercase;
+}
+
+
+#campo_cavalos {
+    width: 40%;
+    height: auto;
+    padding: 10px;
+    margin: 0 auto;
     text-align: center;
-    cursor: pointer;
-    transition: .3s;
+    display: flex;
+    flex-direction: row;
+    background-color: #FFBC6E;
+    border: 10px solid #AF5B14;
+    font-size: 30px;
+    text-transform: uppercase;
 }
-#campos_quest input:focus {
-    transform: scale(1.05);
-    transition: .3s;
+
+#cavalos {
+    width: 50%;
 }
-#campos_quest button:hover {
-    transform: scale(1.05);
-    transition: .3s;
+#nomes {
+    width: 50%;
+
+}
+.cavaloImg {
+    width: 100px;
+}
+.cavaloNome {
+    height: 100px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/* div corrida */
+#div_corrida {
+    display: none;
 }

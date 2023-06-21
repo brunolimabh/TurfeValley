@@ -19,7 +19,54 @@ function validar() {
     }
 
     if (erro == false) {
-        div_qtd.style.display = 'none';
-        div_nomes.style.display = 'block';
+        quest.style.display = 'none';
+        nomeCavalos.style.display = 'block';
     }
+}
+
+function cadastrarCavalo() {
+    var ax_nome = ipt_cavalo.value
+    if (ax_nome.length <= 0) {
+        alert(`Coloque o nome do cavalo`)
+    } else {
+        cavalos.push(
+            {
+                tempoTotal: 0,
+                tempos: [],
+                nome: ax_nome,
+                widths: []
+            }
+        )
+        var divCavalos = document.getElementById('cavalos')
+        var divNomes = document.getElementById('nomes')
+        var imgCavalo = document.createElement("img");
+        var nomeCavalo = document.createElement("p");
+
+        imgCavalo.setAttribute("src", `../img/cavaloSV.png`)
+        nomeCavalo.innerHTML = ax_nome;
+        imgCavalo.className = 'cavaloImg';
+        nomeCavalo.className = 'cavaloNome';
+
+
+        divCavalos.appendChild(imgCavalo);
+        divNomes.appendChild(nomeCavalo);
+        
+    }
+
+    if (cavalos.length == qtdCavalos) {
+
+        setTimeout( ()=> {
+            div_nomes.style.display = 'none';
+            div_corrida.style.display = 'block';
+            obterTempos();
+            for (let index = 0; index < frases.length; index++) {
+                setTimeout(()=>{
+                    div_msg.innerHTML = frases[index]
+                },1000*index)
+            }
+            exibirCavalos();
+            darVoltas(0)
+        }, 4000)
+    }
+
 }

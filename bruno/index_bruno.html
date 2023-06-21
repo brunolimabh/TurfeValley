@@ -21,11 +21,34 @@
         </div>
         <div id="quest">
             <div id="campos_quest">
-                Quantidade de Cavalos: <input type="number" id="ipt_qtd"> <br>
-                Quantidade de Voltas: <input type="number" id="ipt_voltas"><br>
-                <button class="btn" onclick="validar()">Prosseguir</button>
+                Quantidade de Cavalos: <input type="number" id="ipt_qtd" class="ipts"> <br>
+                Quantidade de Voltas: <input type="number" id="ipt_voltas" class="ipts"><br>
+                <button class="btns" onclick="validar()">Prosseguir</button>
             </div>
         </div>
+        <div id="nomeCavalos">
+            <div class="space">
+                <div id="campo_nomes">
+                    Nome dos cavalos:
+                    <input type="text" id="ipt_cavalo" class="ipts"></input>
+                    <button class="btns" onclick="cadastrarCavalo()">Adicionar</button>
+                </div>
+                <div id="campo_cavalos">
+                    <div id="cavalos">
+
+                    </div>
+                    <div id="nomes">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="div_corrida">
+        <div id="div_msg"></div>
+        <button onclick="exibirCavalos(); exibirHistorico();">h</button>
+        <div id="divHistorico"></div>
+    </div>
     </div>
 
 </body>
@@ -39,7 +62,7 @@
 
     // var musicaInicio = document.getElementById("music");
     // musicaInicio.play()
-    
+
     var cavalos = [];
     var qtdCavalos = 0;
     var voltas = 0;
