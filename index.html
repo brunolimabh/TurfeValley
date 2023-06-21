@@ -4,32 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Turfe Amigo - Grupo 9</title>
-    <style>
-        button {
-            color: brown;
-            background-color: rgb(240, 240, 120);
-            border: 2px solid brown;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            margin: 10px 0px;
-        }
-
-        #div_nomes {
-            display: none;
-        }
-
-        #div_corrida {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/campos.css">
+    <link rel="stylesheet" href="css/corrida.css">
+    <link rel="stylesheet" href="css/podium.css">
+    <title>Turfe Valley</title>
 </head>
 
 <body>
     <div class="divIndex">
-        <h3>Turfe Amigo</h3>
+        <h3>Turfe Valley</h3>
         <div id="div_qtd">
             Quantidade de Cavalos: <input type="text" id="ipt_qtd"> <br>
             Quantidade de Voltas: <input type="text" id="ipt_voltas"><br>
@@ -64,17 +48,17 @@
             <div id="nomeP"></div> 
             <div id="nomeS"></div> 
             <div id="nomeT"></div> 
-            <img id="topum" src="cavalo03-removebg-preview.png" alt=""> 
+            <img id="topum" src="img/cavalo3.png" alt=""> 
             <div id="primeiro"> 
                 <h1>1º</h1> 
                 <p class="sec"><span id="secP"></span><br> segundos</p> 
             </div> 
-            <img id="topdois" src="cavalo02-removebg-preview.png" alt=""> 
+            <img id="topdois" src="img/cavalo2.png" alt=""> 
             <div id="segundo"> 
                 <h1>2º</h1> 
                 <p class="sec"><span id="secS"></span><br> segundos</p> 
             </div> 
-            <img id="topter" src="cavalo01-removebg-preview.png" alt=""> 
+            <img id="topter" src="img/cavalo1.png" alt=""> 
             <div id="terceiro"> 
                 <h1>3º</h1>  
                 <p class="sec"><span id="secT"></span><br>segundos</p> 
@@ -87,184 +71,12 @@
 
 </html>
 
+<script src="js/campos.js"></script>
+<script src="js/corrida.js"></script>
+<script src="js/podium.js"></script>
 <script>
-
     var cavalos = [];
     var qtdCavalos = 0;
     var voltas = 0;
     var frases = ['A corrida vai começar em', '3','2','1','Começou!']
-
-    function validar() {
-        qtdCavalos = Number(ipt_qtd.value);
-        voltas = Number(ipt_voltas.value);
-
-        var erro = false;
-
-        if (qtdCavalos < 2 || qtdCavalos > 6 || ipt_qtd.value == 0 || isNaN(qtdCavalos)) {
-            alert('Insira uma quantidade de cavalos entre 2 e 6');
-            erro = true;
-        }
-        if (voltas < 1 || voltas > 5 || ipt_voltas.value == 0 || isNaN(voltas)) {
-            alert('Insira uma quantidade de voltas entre 1 e 5');
-            erro = true;
-        }
-
-        if (erro == false) {
-            div_qtd.style.display = 'none';
-            div_nomes.style.display = 'block';
-        }
-    }
-
-    function cadastrarCavalo() {
-        var ax_nome = ipt_cavalo.value
-        if (ax_nome.length <= 0) {
-            alert(`Coloque o nome do cavalo`)
-        } else {
-            cavalos.push(
-                {
-                    tempoTotal: 0,
-                    tempos: [],
-                    nome: ax_nome,
-                    widths: []
-                }
-            )
-
-            cavaloMsg.innerHTML = `Cavalo ${ax_nome} cadastrado <br>`;
-        }
-
-
-        if (cavalos.length == qtdCavalos) {
-
-            setTimeout( ()=> {
-                div_nomes.style.display = 'none';
-                div_corrida.style.display = 'block';
-                obterTempos();
-                for (let index = 0; index < frases.length; index++) {
-                    setTimeout(()=>{
-                        div_msg.innerHTML = frases[index]
-                    },1000*index)
-                }
-                exibirCavalos();
-                darVoltas(0)
-            }, 4000)
-        }
-
-    }
-
-    function obterTempos() {
-
-        for (let volta = 1; volta <= voltas; volta++) {
-
-            var tempoMin = 10 * voltas;
-
-            for (let index = 0; index < qtdCavalos; index++) {
-
-
-                var tempo = Number((Math.random() * 2 + 7).toFixed(1));
-                cavalos[index].tempos.push(tempo);
-                cavalos[index].tempoTotal += tempo;
-
-                if (cavalos[index].tempoTotal < tempoMin) {
-                    tempoMin = cavalos[index].tempoTotal
-                }
-            }
-
-            for (let index = 0; index < qtdCavalos; index++) {
-                cavalos[index].widths.push((95 * volta / voltas) - 3 * (cavalos[index].tempoTotal - tempoMin))
-            }
-
-        }
-    }
-
-    function darVoltas(volta) {
-
-        for (let index = 0; index < qtdCavalos; index++) {
-            let imgCavalo = document.getElementById('cavalogif' + index);
-            if (index == 0) {
-                imgCavalo.style.listStyle.add('cavaloAnim' + index);
-            }
-            document.documentElement.style.setProperty(`--cavalo${index}From`, cavalos[index].widths[volta] + '%');
-            document.documentElement.style.setProperty(`--cavalo${index}To`, cavalos[index].widths[volta+1] + '%');
-
-        }
-        volta++;
-        if (volta == voltas) {
-            exibirHistorico();
-        } else {
-            setTimeout(()=>{darVoltas(volta) }, 5000);
-        }
-    }
-
-
-    function exibirCavalos() {
-
-        for (let i = 0; i < qtdCavalos; i++) {
-
-            var divCorrida = document.createElement("div");
-            var divCeu = document.createElement("div");
-            var divGrama = document.createElement("div");
-            var cavalo = document.createElement("img");
-
-            cavalo.setAttribute("src", `cavalogif.gif`)
-            cavalo.className = 'cavaloImg' + i;
-
-            divCorrida.id = 'corrida';
-            divCeu.className = 'ceu';
-            divGrama.className = 'grama';
-            cavalo.id = 'cavalogif' + i;
-            divCorrida.appendChild(divCeu);
-            divCorrida.appendChild(divGrama);
-            divCorrida.appendChild(cavalo);
-            div_corrida.appendChild(divCorrida);
-
-
-        }
-    }
-    function exibirHistorico() {
-        var texto = '<div class = "tabela"><div class="linha"><div>Volta</div>';
-
-        for (let index = 0; index < qtdCavalos; index++) {
-            texto += `<div>${cavalos[index].nome}</div>`;
-        }
-        texto += '</div>';
-        for (let volta = voltas; volta > 0; volta--) {
-            
-            texto += `<div class="linha"><div> ${volta} </div>`
-
-
-            for (let index = 0; index < qtdCavalos; index++) {
-                texto += `<div> ${cavalos[index].tempos[volta -1]} </div>`
-            }
-
-            texto += '</div></div>'
-     
-
-        }
-
-        divHistorico.innerHTML = texto;
-
-        
-        
-        
-        // document.getElementById('div_podium1').style = 'height: 150px; color: gold;';
-        // document.getElementById('div_podium1').innerHTML = `${cavalos}`
-        // if (cavalos)
-        // document.getElementById('div_podium' + (index + 1)).style = 'height: 150px; color: gold;';
-        //     ultimoTempo = cavalos[index].tempoTotal;
-        // }
-    }
-
-    function verPodium() {
-        podium.style.display = "block";
-        div_corrida.style.display = "none";
-
-        var listaRanking = cavalos.sort((a,b)=>{a.tempoTotal-b.tempoTotal})
-
-        nomeP.innerHTML = listaRanking[0].nome;
-        nomeS.innerHTML = listaRanking[1].nome;
-        nomeT.innerHTML = listaRanking[2].nome;
-        secP.innerHTML = listaRanking[0].tempo;
-        secS.innerHTML = listaRanking[1].tempo;
-        secT.innerHTML = listaRanking[2].tempo;
-    }
 </script>

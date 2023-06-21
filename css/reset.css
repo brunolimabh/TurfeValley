@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+html {
+    background-color: brown;
+    font-family: 'montserrat';
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    color: brown;
+    background-color: rgb(240, 240, 120);
+    border: 2px solid brown;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 10px auto;
+    width: 50%;
+}
+input {
+    border-radius: 10px;
+    border: none;
+    margin: 5px 0;
+    padding: 5px;
+}

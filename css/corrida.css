@@ -1,0 +1,169 @@
+.root {
+    --cavalo1From: 0%;
+    --cavalo1To: 0%;
+    --cavalo2From: 0%;
+    --cavalo2To: 0%;
+    --cavalo3From: 0%;
+    --cavalo3To: 0%;
+    --cavalo4From: 0%;
+    --cavalo4To: 0%;
+    --cavalo5From: 0%;
+    --cavalo5To: 0%;
+    --cavalo0From: 0%;
+    --cavalo0To: 0%;
+}
+
+#div_corrida {
+    display: none;
+}
+
+
+#corrida {
+    width: auto;
+    height: auto;
+    position: relative;
+    border: 2px solid brown;
+}
+
+.ceu {
+    width: 100%;
+    height: 60PX;
+    background-color: aqua;
+}
+
+.grama {
+    width: 100%;
+    height: 20PX;
+    background-color: green;
+}
+
+.cavaloImg0 {
+    position: absolute;
+    top: 0;
+    width: 80px;
+    animation-delay: 4000;
+    animation: cavalo0 5s linear infinite;
+}
+
+.cavaloImg1 {
+    position: absolute;
+    top: 0;
+    width: 80px;
+    animation-delay: 4000;
+    animation: cavalo1 5s linear infinite;
+}
+
+.cavaloImg2 {
+    position: absolute;
+    top: 0;
+    width: 80px;
+    animation-delay: 4000;
+    animation: cavalo2 5s linear infinite;
+}
+
+.cavaloImg3 {
+    position: absolute;
+    top: 0;
+    width: 80px;
+    animation-delay: 4000;
+    animation: cavalo3 5s linear infinite;
+}
+
+.cavaloImg4 {
+    position: absolute;
+    top: 0;
+    width: 80px;
+    animation-delay: 4000;
+    animation: cavalo4 5s linear infinite;
+}
+
+.cavaloImg5 {
+    position: absolute;
+    top: 0;
+    width: 80px;
+    animation-delay: 4000;
+    animation: cavalo5 5s linear infinite;
+}
+
+.divIndex {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+@keyframes cavalo0 {
+    from {
+        left: var(--cavalo0From);
+    }
+
+    to {
+        left: var(--cavalo0To);
+    }
+}
+
+@keyframes cavalo1 {
+    from {
+        left: var(--cavalo1From);
+    }
+
+    to {
+        left: var(--cavalo1To);
+    }
+}
+
+@keyframes cavalo2 {
+    from {
+        left: var(--cavalo2From);
+    }
+
+    to {
+        left: var(--cavalo2To);
+    }
+}
+
+@keyframes cavalo3 {
+    from {
+        left: var(--cavalo3From);
+    }
+
+    to {
+        left: var(--cavalo3To);
+    }
+}
+
+@keyframes cavalo4 {
+    from {
+        left: var(--cavalo4From);
+    }
+
+    to {
+        left: var(--cavalo4To);
+    }
+}
+
+@keyframes cavalo5 {
+    from {
+        left: var(--cavalo5From);
+    }
+
+    to {
+        left: var(--cavalo5To);
+    }
+}
+
+
+
+.tabela{
+    display: flex;
+    flex-direction: column;
+}
+.linha{
+    display: flex;
+}
+.linha div{
+    text-align: center;
+    border: solid;
+    border-color: black;
+    padding: 10px;
+    width: 80px;
+}

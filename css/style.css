@@ -13,7 +13,24 @@
     --cavalo5To: 0%;
     --cavalo0From: 0%;
     --cavalo0To: 0%;
+}
 
+button {
+    color: brown;
+    background-color: rgb(240, 240, 120);
+    border: 2px solid brown;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+
+#div_nomes {
+    display: none;
+}
+
+#div_corrida {
+    display: none;
 }
 
 html {
