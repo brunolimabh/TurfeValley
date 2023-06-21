@@ -6,15 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="bruno.css">
-
+    <script src="bruno.js"></script>
     <title>Turfe Valley</title>
 </head>
 
 <body>
-    <div class="tela_inicio">
-        <div class="campos">
-            <h1>Turfe Valley</h1>   
-            <button>Iniciar</button>
+    <audio id="music">
+        <source src="audio_inicio.mp3" type="audio/mpeg">
+    </audio>
+    <div id="tela_inicio">
+        <div id="campos_inicio">
+            <h1>Turfe Valley</h1>
+            <button onclick="iniciar()">Iniciar</button>
+        </div>
+        <div id="quest">
+            <div id="campos_quest">
+                Quantidade de Cavalos: <input type="number" id="ipt_qtd"> <br>
+                Quantidade de Voltas: <input type="number" id="ipt_voltas"><br>
+                <button class="btn" onclick="validar()">Prosseguir</button>
+            </div>
         </div>
     </div>
 
@@ -26,6 +36,10 @@
 <script src="js/corrida.js"></script>
 <script src="js/podium.js"></script>
 <script>
+
+    // var musicaInicio = document.getElementById("music");
+    // musicaInicio.play()
+    
     var cavalos = [];
     var qtdCavalos = 0;
     var voltas = 0;
