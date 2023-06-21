@@ -150,7 +150,7 @@ html {
 }
 
 #cavalos {
-    width: 50%;
+    width: 40%;
 }
 
 #nomes {
@@ -159,11 +159,12 @@ html {
 }
 
 .cavaloImg {
-    width: 100px;
+    width: 80px;
 }
 
 .cavaloNome {
-    height: 100px;
+    padding-bottom: 7px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -186,7 +187,7 @@ html {
     background-size: cover;
     width: 90%;
     width: auto;
-    height: 100vh;
+    height: 100%;
     padding-top: 10px;
 
 }
