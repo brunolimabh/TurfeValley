@@ -187,7 +187,7 @@ html {
     background-size: cover;
     width: 90%;
     width: auto;
-    height: 100%;
+    height: 100%    ;
     padding-top: 10px;
 
 }
@@ -254,6 +254,8 @@ html {
     background-color: #D89143;
     padding-top: 20px;
     z-index: 2;
+    text-align: center;
+    font-size: 30px;
 }
 #cvlUm {
     position: absolute;
@@ -261,6 +263,15 @@ html {
     width: 10%;
     left: 44%;
     z-index: 2;
+}
+#nomeUm {
+    position: absolute;
+    text-align: center;
+    bottom: 80%;
+    width: 20%;
+    left: 40%;
+    z-index: 2;
+    font-size: 30px;
 }
 #topDois {
     position: absolute;
@@ -270,7 +281,9 @@ html {
     left: 12.5%;
     background-color: #D89143;
     padding-top: 20px;  
+    text-align: center;
     z-index: 1;
+    font-size: 30px;
 }
 #cvlDois {
     position: absolute;
@@ -278,6 +291,15 @@ html {
     width: 10%;
     left: 20%;
     z-index: 2;
+}
+#nomeDois {
+    position: absolute;
+    text-align: center;
+    bottom: 54%;
+    width: 20%;
+    left: 15%;
+    z-index: 2;
+    font-size: 30px;
 }
 #topTres {
     position: absolute;
@@ -288,6 +310,8 @@ html {
     background-color: #D89143;
     padding-top: 20px;
     z-index: 1;
+    text-align: center;
+    font-size: 30px;
 }
 #cvlTres {
     position: absolute;
@@ -295,4 +319,13 @@ html {
     width: 10%;
     left: 70%;
     z-index: 2;
+}
+#nomeTres {
+    position: absolute;
+    text-align: center;
+    bottom: 40%;
+    width: 20%;
+    left: 65%;
+    z-index: 2;
+    font-size: 30px;
 }
