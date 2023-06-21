@@ -65,6 +65,7 @@ function cadastrarCavalo() {
                 },1000*i)
             }
             exibirCavalos();
+            musicaInicio.pause()
             darVoltas(0)
         }, 3000)
     }

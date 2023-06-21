@@ -11,8 +11,11 @@
 </head>
 
 <body>
-    <audio id="music">
+    <audio id="inicio">
         <source src="audio_inicio.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="galopa">
+        <source src="galopa.mp3" type="audio/mpeg">
     </audio>
     <div id="tela_inicio">
         <div id="campos_inicio">
@@ -64,13 +67,12 @@
 
 </html>
 
-<script src="js/campos.js"></script>
-<script src="js/corrida.js"></script>
-<script src="js/podium.js"></script>
 <script>
 
-    // var musicaInicio = document.getElementById("music");
-    // musicaInicio.play()
+    var musicaInicio = document.getElementById("inicio");
+    musicaInicio.play()
+    var musicaGalopa = document.getElementById("galopa");
+
 
     var cavalos = [];
     var qtdCavalos = 0;
