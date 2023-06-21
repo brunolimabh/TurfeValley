@@ -31,24 +31,33 @@
                 <div id="campo_nomes">
                     Nome dos cavalos:
                     <input type="text" id="ipt_cavalo" class="ipts"></input>
-                    <button class="btns" onclick="cadastrarCavalo()">Adicionar</button>
+                    <button class="btns" id="btnCadastro" onclick="cadastrarCavalo()">Adicionar</button>
                 </div>
                 <div id="campo_cavalos">
-                    <div id="cavalos">
-
-                    </div>
-                    <div id="nomes">
-                        
-                    </div>
+                    <div id="cavalos"></div>
+                    <div id="nomes"></div>
                 </div>
             </div>
+            <p id="aguardeMsg">aguarde...</p>
         </div>
     </div>
     <div id="div_corrida">
         <div id="div_msg"></div>
-        <button onclick="exibirCavalos(); exibirHistorico();">h</button>
         <div id="divHistorico"></div>
+        <div id="cavalos_correndo">
+
+        </div>
+        <button onclick="exibirPodio()">Exibir PÓDIO</button>
     </div>
+    <div id="div_podio">
+        <div id="div_ranking">
+            <div id="topUm"></div>
+            <div id="topDois"></div>
+            <div id="topTres"></div>
+            <img id="cvlUm" src="../img/topum.png">
+            <img id="cvlDois" src="../img/topDois.png">
+            <img id="cvlTres" src="../img/topTres.png">
+        </div>
     </div>
 
 </body>

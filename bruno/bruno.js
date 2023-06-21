@@ -47,26 +47,82 @@ function cadastrarCavalo() {
         imgCavalo.className = 'cavaloImg';
         nomeCavalo.className = 'cavaloNome';
 
-
         divCavalos.appendChild(imgCavalo);
         divNomes.appendChild(nomeCavalo);
-        
+
+        ipt_cavalo.value = '';
     }
-
     if (cavalos.length == qtdCavalos) {
-
+        campo_nomes.style.display = 'none';
+        aguardeMsg.style.display = 'block';
+        obterTempos();
         setTimeout( ()=> {
-            div_nomes.style.display = 'none';
+            tela_inicio.style.display = 'none';
             div_corrida.style.display = 'block';
-            obterTempos();
-            for (let index = 0; index < frases.length; index++) {
+            for (let i = 0; i < frases.length; i++) {
                 setTimeout(()=>{
-                    div_msg.innerHTML = frases[index]
-                },1000*index)
+                    div_msg.innerHTML = frases[i]
+                },1000*i)
             }
             exibirCavalos();
             darVoltas(0)
-        }, 4000)
+        }, 3000)
     }
+}
 
+function obterTempos() {
+    for (let volta = 1; volta <= voltas; volta++) {
+        var tempoMin = 10 * voltas;
+        for (let index = 0; index < qtdCavalos; index++) {
+            var tempo = Number((Math.random() * 2 + 7).toFixed(1));
+            cavalos[index].tempos.push(tempo);
+            cavalos[index].tempoTotal += tempo;
+
+            if (cavalos[index].tempoTotal < tempoMin) {
+                tempoMin = cavalos[index].tempoTotal
+            }
+        }
+        for (let index = 0; index < qtdCavalos; index++) {
+            cavalos[index].widths.push((95 * volta / voltas) - 3 * (cavalos[index].tempoTotal - tempoMin))
+        }
+    }
+}
+
+function darVoltas(volta) {
+    for (let index = 0; index < qtdCavalos; index++) {
+        let imgCavalo = document.getElementById('cavalogif' + index);
+        if (index == 0) {
+            imgCavalo.style.listStyle.add('cavaloAnim' + index);
+        }
+        document.documentElement.style.setProperty(`--cavalo${index}From`, cavalos[index].widths[volta] + '%');
+        document.documentElement.style.setProperty(`--cavalo${index}To`, cavalos[index].widths[volta+1] + '%');
+    }
+    volta++;
+    if (volta == voltas) {
+        exibirHistorico();
+    } else {
+        setTimeout(()=>{darVoltas(volta) }, 5000);
+    }
+}
+
+
+function exibirCavalos() {
+    for (let i = 0; i < qtdCavalos; i++) {
+        var divCorrida = document.createElement("div");
+        var cavalo = document.createElement("img");
+
+        cavalo.setAttribute("src", `../img/cavalogif.gif`)
+        cavalo.className = 'cavaloImg' + i;
+
+        divCorrida.id = 'corrida';
+        cavalo.id = 'cavalogif' + i;
+        divCorrida.appendChild(cavalo);
+        cavalos_correndo.appendChild(divCorrida);
+    }
+}
+
+// podio
+function exibirPodio() {
+    div_corrida.style.display = 'none';
+    div_podio.style.display = 'block';
 }

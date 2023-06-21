@@ -25,6 +25,7 @@ html {
     transition: .3s;
     outline: none;
 }
+
 .ipts:focus {
     transform: scale(1.05);
     transition: .3s;
@@ -48,6 +49,7 @@ html {
     transform: scale(1.05);
     transition: .3s;
 }
+
 /* tela de inicio */
 #tela_inicio {
     background-image: url(../img/fundo_inicio.jpg);
@@ -106,10 +108,11 @@ html {
 
 /* nome cavalos */
 #nomeCavalos {
-    
+    text-align: center;
     display: none;
     padding-top: 100px;
 }
+
 .space {
     display: flex;
     flex-direction: row;
@@ -149,18 +152,27 @@ html {
 #cavalos {
     width: 50%;
 }
+
 #nomes {
     width: 50%;
 
 }
+
 .cavaloImg {
     width: 100px;
 }
+
 .cavaloNome {
-    height: 100px ;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#aguardeMsg {
+    display: none;
+    font-size: 30px;
+    text-transform: uppercase;
 }
 
 
@@ -169,4 +181,116 @@ html {
 /* div corrida */
 #div_corrida {
     display: none;
+    background-image: url(../img/fundo_madeira.png);
+    background-position: center;
+    background-size: cover;
+    width: 90%;
+    width: auto;
+    height: 100vh;
+    padding-top: 10px;
+
+}
+
+#div_msg {
+    width: 30%;
+    text-align: center;
+    margin: 20px auto 30px auto;
+    padding: 20px;
+    font-size: 30px;
+    background-color: #FFBC6E;
+    border: 10px solid #6e3507;
+
+}
+#divHistorico {
+    width: 50%;
+    text-align: center;
+    margin: 20px auto 30px auto;
+    padding: 20px;
+    font-size: 30px;
+    background-color: #FFBC6E;
+    border: 10px solid #6e3507;
+}
+#cavalos_correndo {
+    background-image: url(../img/fundo_grama.png);
+    background-position: center;
+    background-size: cover;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: 10px solid #6e3507;
+}
+
+
+/* historico */
+
+
+
+/* podium */
+#div_podio {
+    width: 100%;
+    height: 90vh;
+    background-image: url(../img/fundo_madeira.png);
+    background-position: center;
+    background-size: cover;
+    padding-top: 10vh;
+}
+#div_ranking {
+    width: 80%;
+    height: 80%;
+    background-color: #FFBC6E;
+    margin: 0 auto;
+    border: 10px solid #6e3507;
+    position: relative;
+}
+#topUm {
+    position: absolute;
+    bottom: 0%;
+    width: 25%;
+    height: 50%;
+    left: 37.5%;
+    background-color: #D89143;
+    padding-top: 20px;
+    z-index: 2;
+}
+#cvlUm {
+    position: absolute;
+    bottom: 53%;
+    width: 10%;
+    left: 44%;
+    z-index: 2;
+}
+#topDois {
+    position: absolute;
+    bottom: 0%;
+    width: 25%;
+    height: 25%;
+    left: 12.5%;
+    background-color: #D89143;
+    padding-top: 20px;  
+    z-index: 1;
+}
+#cvlDois {
+    position: absolute;
+    bottom: 24%;
+    width: 10%;
+    left: 20%;
+    z-index: 2;
+}
+#topTres {
+    position: absolute;
+    bottom: 0%;
+    width: 25%;
+    height: 11%;
+    left: 62.5%;
+    background-color: #D89143;
+    padding-top: 20px;
+    z-index: 1;
+}
+#cvlTres {
+    position: absolute;
+    bottom: 9%;
+    width: 10%;
+    left: 70%;
+    z-index: 2;
 }
