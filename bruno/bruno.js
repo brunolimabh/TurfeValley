@@ -3,8 +3,7 @@ var lideres = [];
 function iniciar() {
     campos_inicio.style.display = 'none'
     quest.style.display = 'block'
-    musicaInicio.play()
-    musicaInicio.volume = 0.3;
+    trilhaSonora.volume = 0.3;
 }
 
 function validar() {
@@ -69,7 +68,7 @@ function cadastrarCavalo() {
                 }, 1000 * i)
             }
             exibirCavalos();
-            musicaInicio.pause();
+            trilhaSonora.pause();
             setTimeout(() => {largada.play()},200)
             setTimeout(() => {darVoltas(0)}, 4000);
         }, 3000)
@@ -104,7 +103,7 @@ function darVoltas(volta) {
         div_msg.innerHTML = `Volta ${volta} - ${lideres[volta - 1]} está liderando!`;
     }
     for (let index = 0; index < qtdCavalos; index++) {
-        musicaGalopa.play()
+        galopa.play()
         document.documentElement.style.setProperty(`--cavalo${index}From`, cavalos[index].widths[volta] + '%');
         document.documentElement.style.setProperty(`--cavalo${index}To`, cavalos[index].widths[volta + 1] + '%');
         let imgCavalo = document.getElementById('cavalogif' + index);
@@ -115,12 +114,12 @@ function darVoltas(volta) {
     volta++;
     if (volta > voltas) {
         for (let index = 0; index < qtdCavalos; index++) {
-            musicaGalopa.play()
+            galopa.play()
             document.documentElement.style.setProperty(`--cavalo${index}From`, cavalos[index].widths[volta - 1] + '%');
             document.documentElement.style.setProperty(`--cavalo${index}To`, cavalos[index].widths[volta - 1] + '%');
         }
         div_msg.innerHTML = 'Corrida encerrada!';
-        musicaGalopa.pause()
+        galopa.pause()
         exibirHistorico();
     } else {
         setTimeout(() => { darVoltas(volta) }, 5000);
@@ -151,6 +150,7 @@ function exibirCavalos() {
 function exibirPodio() {
     div_corrida.style.display = 'none';
     div_podio.style.display = 'block';
+    trilhaSonora.play();
 
     nomeUm.innerHTML = `${cavalo[0].nome} <br> ${cavalo[0].tempoTotal}`;
     nomeDois.innerHTML = `${cavalo[1].nome} <br> ${cavalo[1].tempoTotal}`;
