@@ -389,6 +389,7 @@ h2{
     padding-top: 20px;
     z-index: 2;
     border: black solid 1px;
+    font-size: 23px;
 }
 #cvlUm {
     position: absolute;
@@ -407,6 +408,7 @@ h2{
     padding-top: 20px;  
     z-index: 1;
     border: black solid 1px;
+    font-size: 23px;
 }
 #cvlDois {
     position: absolute;
@@ -425,6 +427,7 @@ h2{
     padding-top: 20px;
     z-index: 1;
     border: black solid 1px;
+    font-size: 23px;
 }
 #cvlTres {
     position: absolute;

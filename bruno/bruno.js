@@ -40,7 +40,7 @@ function cadastrarCavalo() {
                 widths: [0]
             }
         )
-       
+
         var divCavalos = document.getElementById('cavalos')
         var divNomes = document.getElementById('nomes')
         var imgCavalo = document.createElement("img");
@@ -70,8 +70,8 @@ function cadastrarCavalo() {
             }
             exibirCavalos();
             trilhaSonora.pause();
-            setTimeout(() => {largada.play()},200)
-            setTimeout(() => {darVoltas(0)}, 4000);
+            setTimeout(() => { largada.play() }, 200)
+            setTimeout(() => { darVoltas(0) }, 4000);
         }, 3000)
     }
 }
@@ -121,7 +121,7 @@ function darVoltas(volta) {
         }
         div_msg.innerHTML = 'Corrida encerrada!';
         galopa.pause()
-        btnPodio.style.display  ='block'
+        btnPodio.style.display = 'block'
         // if (index >= qtdCavalos) {
         //     alert("entrei no if")
         // }
@@ -156,16 +156,25 @@ function exibirPodio() {
     div_podio.style.display = 'block';
     trilhaSonora.play();
 
-    cavalos.sort((a,b) => a.tempoTotal - b.tempoTotal);
+    cavalos.sort((a, b) => a.tempoTotal - b.tempoTotal);
 
-    //nome dos vencedores
-    nomeUm.innerHTML = `${cavalos[0].nome}  `;
-    nomeDois.innerHTML = `${cavalos[1].nome}`;
-    nomeTres.innerHTML = `${cavalos[2].nome}`;
-    // tempo dos vencedores
-    tempoUm.innerHTML = `${(cavalos[0].tempoTotal).toFixed(2)}`;
-    tempoDois.innerHTML = `${(cavalos[1].tempoTotal).toFixed(2)}`;
-    tempoTres.innerHTML = `${(cavalos[2].tempoTotal).toFixed(2)}`;
+    if (qtdCavalos == 2) {
+        nomeUm.innerHTML = `${cavalos[0].nome}  `;
+        nomeDois.innerHTML = `${cavalos[1].nome}`;
+
+        tempoUm.innerHTML = `${(cavalos[0].tempoTotal).toFixed(2)}`;
+        tempoDois.innerHTML = `${(cavalos[1].tempoTotal).toFixed(2)}`;
+    } else {
+        //nome dos vencedores
+        nomeUm.innerHTML = `${cavalos[0].nome}  `;
+        nomeDois.innerHTML = `${cavalos[1].nome}`;
+        nomeTres.innerHTML = `${cavalos[2].nome}`;
+        // tempo dos vencedores
+        tempoUm.innerHTML = `${(cavalos[0].tempoTotal).toFixed(2)}`;
+        tempoDois.innerHTML = `${(cavalos[1].tempoTotal).toFixed(2)}`;
+        tempoTres.innerHTML = `${(cavalos[2].tempoTotal).toFixed(2)}`;
+
+    }
 }
 
 function reiniciar() {
