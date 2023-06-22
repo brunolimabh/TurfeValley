@@ -7,7 +7,7 @@ function iniciar() {
 
 function validar() {
     qtdCavalos = Number(ipt_qtd.value);
-    voltas = Number(ipt_voltas.value);
+    ax_voltas = Number(ipt_voltas.value);
 
     var erro = false;
 
@@ -15,7 +15,7 @@ function validar() {
         alert('Insira uma quantidade de cavalos entre 2 e 6');
         erro = true;
     }
-    if (voltas < 1 || voltas > 10 || ipt_voltas.value == 0 || isNaN(voltas)) {
+    if (ax_voltas < 1 || ax_voltas > 10 || ipt_voltas.value == 0 || isNaN(ax_voltas)) {
         alert('Insira uma quantidade de voltas entre 1 e 10');
         erro = true;
     }
@@ -55,7 +55,7 @@ function cadastrarCavalo() {
 
         ipt_cavalo.value = '';
     }
-    if (cavalos.length == qtdCavalos) {
+    if (vt_cavalos.length == qtdCavalos) {
         campo_nomes.style.display = 'none';
         aguardeMsg.style.display = 'block';
         obterTempos();
@@ -77,8 +77,8 @@ function cadastrarCavalo() {
 }
 
 function obterTempos() {
-    for (let volta = 1; volta <= voltas; volta++) {
-        var tempoMin = 10 * voltas;
+    for (let volta = 1; volta <= ax_voltas; volta++) {
+        var tempoMin = 10 * ax_voltas;
         for (let index = 0; index < qtdCavalos; index++) {
             var tempo = Number((Math.random() * 2 + 7).toFixed(1));
             vt_cavalos[index].tempos.push(tempo);
@@ -89,10 +89,10 @@ function obterTempos() {
             }
         }
         for (let index = 0; index < qtdCavalos; index++) {
-            vt_cavalos[index].widths.push((94 * volta / voltas) - 4 * (vt_cavalos[index].tempoTotal - tempoMin))
+            vt_cavalos[index].widths.push((94 * volta / ax_voltas) - 4 * (vt_cavalos[index].tempoTotal - tempoMin))
 
-            if (vt_cavalos[index].tempoTotal == tempoMin && lideres.length < volta) {
-                lideres.push(vt_cavalos[index].nome);
+            if (vt_cavalos[index].tempoTotal == tempoMin && vt_lideres.length < volta) {
+                vt_lideres.push(vt_cavalos[index].nome);
             }
         }
     }
@@ -100,24 +100,24 @@ function obterTempos() {
 
 function darVoltas(volta) {
     largada.pause();
-    if (volta > 0 && volta < voltas) {
-        div_msg.innerHTML = `Volta ${volta} - ${lideres[volta - 1]} está liderando!`;
+    if (volta > 0 && volta < ax_voltas) {
+        div_msg.innerHTML = `Volta ${volta} - ${vt_lideres[volta - 1]} está liderando!`;
     }
     for (let index = 0; index < qtdCavalos; index++) {
         galopa.play()
-        document.documentElement.style.setProperty(`--cavalo${index}From`, cavalos[index].widths[volta] + '%');
-        document.documentElement.style.setProperty(`--cavalo${index}To`, cavalos[index].widths[volta + 1] + '%');
+        document.documentElement.style.setProperty(`--cavalo${index}From`, vt_cavalos[index].widths[volta] + '%');
+        document.documentElement.style.setProperty(`--cavalo${index}To`, vt_cavalos[index].widths[volta + 1] + '%');
         let imgCavalo = document.getElementById('cavalogif' + index);
         if (volta == 0) {
             imgCavalo.classList.add('cavaloAnimacao' + index);
         }
     }
     volta++;
-    if (volta > voltas) {
+    if (volta > ax_voltas) {
         for (let index = 0; index < qtdCavalos; index++) {
             galopa.play();
-            document.documentElement.style.setProperty(`--cavalo${index}From`, cavalos[index].widths[volta - 1] + '%');
-            document.documentElement.style.setProperty(`--cavalo${index}To`, cavalos[index].widths[volta - 1] + '%');
+            document.documentElement.style.setProperty(`--cavalo${index}From`, vt_cavalos[index].widths[volta - 1] + '%');
+            document.documentElement.style.setProperty(`--cavalo${index}To`, vt_cavalos[index].widths[volta - 1] + '%');
         }
         div_msg.innerHTML = 'Corrida encerrada!';
         galopa.pause();
@@ -141,7 +141,7 @@ function exibirCavalos() {
         cavalo.setAttribute("src", `img/cavalogif.gif`);
         cavalo.className = 'cavaloImgCorrida';
 
-        nome.innerHTML = cavalos[i].nome;
+        nome.innerHTML = vt_cavalos[i].nome;
         nome.className = 'nome';
 
         divCorrida.id = 'corrida';
@@ -150,10 +150,10 @@ function exibirCavalos() {
         divCorrida.appendChild(nome);
         cavalos_correndo.appendChild(divCorrida);
     }
-    for (let index = 1; index < voltas; index++) {
+    for (let index = 1; index < ax_voltas; index++) {
         let marcador = document.createElement("span");
         marcador.className = 'marcadores';
-        marcador.style.left = (100 * index / voltas) + '%';
+        marcador.style.left = (100 * index / ax_voltas) + '%';
         cavalos_correndo.appendChild(marcador);
     }
 }
@@ -162,16 +162,16 @@ function exibirHistorico() {
     var texto = '<div class = "tabela"><div class="linha"><div>Volta</div>';
 
     for (let index = 0; index < qtdCavalos; index++) {
-        texto += `<div>${cavalos[index].nome}</div>`;
+        texto += `<div>${vt_cavalos[index].nome}</div>`;
     }
     texto += '</div>';
-    for (let volta = voltas; volta > 0; volta--) {
+    for (let volta = ax_voltas; volta > 0; volta--) {
         
         texto += `<div class="linha"><div> ${volta} </div>`
 
 
         for (let index = 0; index < qtdCavalos; index++) {
-            texto += `<div> ${cavalos[index].tempos[volta -1].toFixed(1)} </div>`
+            texto += `<div> ${vt_cavalos[index].tempos[volta -1].toFixed(1)} </div>`
         }
 
         texto += '</div>'
@@ -180,7 +180,7 @@ function exibirHistorico() {
 
     texto += '<div class="linha"><div>Tempo</div>';
     for (let index = 0; index < qtdCavalos; index++) {
-        texto += `<div>${cavalos[index].tempoTotal.toFixed(1)}</div>`
+        texto += `<div>${vt_cavalos[index].tempoTotal.toFixed(1)}</div>`
     }
     texto += '</div></div>';
 
@@ -198,16 +198,16 @@ function exibirPodio() {
    vt_cavalos.sort((a, b) => a.tempoTotal - b.tempoTotal);
 
     if (qtdCavalos == 2) {
-        nomeUm.innerHTML = `${cavalos[0].nome}`;
-        nomeDois.innerHTML = `${cavalos[1].nome}`;
+        nomeUm.innerHTML = `${vt_cavalos[0].nome}`;
+        nomeDois.innerHTML = `${vt_cavalos[1].nome}`;
 
-        tempoUm.innerHTML = `${(cavalos[0].tempoTotal).toFixed(2)}`;
-        tempoDois.innerHTML = `${(cavalos[1].tempoTotal).toFixed(2)}`;
+        tempoUm.innerHTML = `${(vt_cavalos[0].tempoTotal).toFixed(2)}`;
+        tempoDois.innerHTML = `${(vt_cavalos[1].tempoTotal).toFixed(2)}`;
 
         cvlUm.classList.add('primeiroCvl');
         topUm.classList.add('primeiro');
 
-        if (cavalos[0].tempoTotal.toFixed(1) == cavalos[1].tempoTotal.toFixed(1)) {
+        if (vt_cavalos[0].tempoTotal.toFixed(1) == vt_cavalos[1].tempoTotal.toFixed(1)) {
             cvlDois.classList.add('primeiroCvl');
             topDois.classList.add('primeiro');
             medalhaSegundo.src = '../img/first.png';
@@ -222,18 +222,18 @@ function exibirPodio() {
         cavaloTres.src = '';
     } else {
         //nome dos vencedores
-        nomeUm.innerHTML = `${cavalos[0].nome}  `;
-        nomeDois.innerHTML = `${cavalos[1].nome}`;
-        nomeTres.innerHTML = `${cavalos[2].nome}`;
+        nomeUm.innerHTML = `${vt_cavalos[0].nome}  `;
+        nomeDois.innerHTML = `${vt_cavalos[1].nome}`;
+        nomeTres.innerHTML = `${vt_cavalos[2].nome}`;
         // tempo dos vencedores
-        tempoUm.innerHTML = `${(cavalos[0].tempoTotal).toFixed(2)}`;
-        tempoDois.innerHTML = `${(cavalos[1].tempoTotal).toFixed(2)}`;
-        tempoTres.innerHTML = `${(cavalos[2].tempoTotal).toFixed(2)}`;
+        tempoUm.innerHTML = `${(vt_cavalos[0].tempoTotal).toFixed(2)}`;
+        tempoDois.innerHTML = `${(vt_cavalos[1].tempoTotal).toFixed(2)}`;
+        tempoTres.innerHTML = `${(vt_cavalos[2].tempoTotal).toFixed(2)}`;
 
         cvlUm.classList.add('primeiroCvl');
         topUm.classList.add('primeiro');
 
-        if (cavalos[0].tempoTotal.toFixed(1) == cavalos[1].tempoTotal.toFixed(1)) {
+        if (vt_cavalos[0].tempoTotal.toFixed(1) == vt_cavalos[1].tempoTotal.toFixed(1)) {
             cvlDois.classList.add('primeiroCvl');
             topDois.classList.add('primeiro');
             medalhaSegundo.src = '../img/first.png';
@@ -242,11 +242,11 @@ function exibirPodio() {
             topDois.classList.add('segundo');
         }
 
-        if (cavalos[0].tempoTotal.toFixed(1) == cavalos[2].tempoTotal.toFixed(1)) {
+        if (vt_cavalos[0].tempoTotal.toFixed(1) == vt_cavalos[2].tempoTotal.toFixed(1)) {
             cvlTres.classList.add('primeiroCvl');
             topTres.classList.add('primeiro');
             medalhaTerceiro.src = '../img/first.png';
-        } else if (cavalos[1].tempoTotal.toFixed(1) == cavalos[2].tempoTotal.toFixed(1)) {
+        } else if (vt_cavalos[1].tempoTotal.toFixed(1) == vt_cavalos[2].tempoTotal.toFixed(1)) {
             cvlTres.classList.add('segundoCvl');
             topTres.classList.add('segundo');
             medalhaTerceiro.src = '../img/second.png';
