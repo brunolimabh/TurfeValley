@@ -119,8 +119,15 @@ function darVoltas(volta) {
             document.documentElement.style.setProperty(`--cavalo${index}To`, cavalos[index].widths[volta - 1] + '%');
         }
         div_msg.innerHTML = 'Corrida encerrada!';
-        galopa.pause()
-        exibirHistorico();
+
+        if (index >= qtdCavalos) {
+            alert("entrei no if")
+            galopa.pause()
+
+            buttonPodio.style.display  ='block'
+        }
+        
+        
     } else {
         setTimeout(() => { darVoltas(volta) }, 5000);
     }
@@ -151,6 +158,11 @@ function exibirPodio() {
     div_corrida.style.display = 'none';
     div_podio.style.display = 'block';
     trilhaSonora.play();
+
+    for (let index = 0; index < array.length; index++) {
+        const element = array[index];
+        
+    }
 
     nomeUm.innerHTML = `${cavalo[0].nome} <br> ${cavalo[0].tempoTotal}`;
     nomeDois.innerHTML = `${cavalo[1].nome} <br> ${cavalo[1].tempoTotal}`;

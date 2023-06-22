@@ -52,14 +52,30 @@
         <div id="divHistorico"></div>
         <div id="cavalos_correndo">
 
-        </div>
-        <button class="btn-podio_reiniciar" onclick="exibirPodio()">Exibir pódio</button>
+        </div id="div_podio">
+        <button  id="buttonPodio" onclick="exibirPodio()">Exibir pódio</button>
     </div>
     <div id="div_podio">
         <div id="div_ranking">
-            <div id="topUm">1º</div>
-            <div id="topDois">2º</div>
-            <div id="topTres">3º</div>
+            <img id="confete" src="../img/confete.gif" alt="">
+            <div id="topUm">
+                
+                <div class="infoPodium"><h2>Nome do Cavalo</h2></div>
+                <div class="infoPodium">Velocidade Total</div>
+                <div class="infoPodium"><img src="../img/first.png" alt=""></div>
+            </div>
+            <div id="topDois">
+                
+                <div class="infoPodium"><h2>Nome do Cavalo</h2></div>
+                <div class="infoPodium">Velocidade Total</div>
+                <div class="infoPodium"><img src="../img/second.png" alt=""></div>
+            </div>
+            <div id="topTres">
+                
+                <div class="infoPodium"><h2>Nome do Cavalo</h2></div>
+                <div class="infoPodium">Velocidade Total</div>
+                <div class="infoPodium"><img src="../img/third.png" alt=""></div>
+            </div>
             <img id="cvlUm" src="../img/topum.png">
             <img id="cvlDois" src="../img/topDois.png">
             <img id="cvlTres" src="../img/topTres.png">
@@ -67,7 +83,9 @@
             <p id="nomeDois"></p>
             <p id="nomeTres"></p>
         </div>
-        <button class="btn-podio_reiniciar" onclick="reiniciar()">Reiniciar</button>
+        <div id="buttonReiniciar">
+            <button id="btn-podio_reiniciar" onclick="reiniciar()" >Reiniciar</button>
+        </div>
     </div>
 
 </body>

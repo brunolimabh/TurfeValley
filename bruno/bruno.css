@@ -28,6 +28,10 @@ html {
     font-family: 'padrao';
 }
 
+h2{
+    margin: 0;  
+}
+
 .ipts {
     width: 50%;
     margin: auto;
@@ -342,7 +346,103 @@ html {
 
 
 /* podium */
-.btn-podio_reiniciar {
+
+
+#div_podio {
+    display: none;
+    width: 100%;
+    height: 90vh;
+    background-image: url(../img/fundo_madeira.png);
+    background-position: center;
+    background-size: cover;
+    padding-top: 10vh;
+}
+#div_ranking {
+    width: 80%;
+    height: 80%;
+    background-color: #FFBC6E;
+    margin: 0 auto;
+    border: 10px solid #6e3507;
+    position: relative;
+}
+
+#confete{
+    width: 100%;
+    height: 90%;
+}
+
+.infoPodium {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+.infoPodium img{
+    width: 20%;
+}
+#topUm {
+    position: absolute;
+    bottom: 0%;
+    width: 25%;
+    height: 55%;
+    left: 37.5%;
+    background-color: #ecf027;
+    padding-top: 20px;
+    z-index: 2;
+    border: black solid 1px;
+}
+#cvlUm {
+    position: absolute;
+    bottom: 57.5%;
+    width: 10%;
+    left: 46%;
+    z-index: 2;
+}
+#topDois {
+    position: absolute;
+    bottom: 0%;
+    width: 25%;
+    height: 40%;
+    left: 12.5%;
+    background-color: #d3c8bc;
+    padding-top: 20px;  
+    z-index: 1;
+    border: black solid 1px;
+}
+#cvlDois {
+    position: absolute;
+    bottom: 40%;
+    width: 10%;
+    left: 20%;
+    z-index: 2;
+}
+#topTres {
+    position: absolute;
+    bottom: 0%;
+    width: 25%;
+    height: 30%;
+    left: 62.5%;
+    background-color: #D89143;
+    padding-top: 20px;
+    z-index: 1;
+    border: black solid 1px;
+}
+#cvlTres {
+    position: absolute;
+    bottom: 28%;
+    width: 10%;
+    left: 70%;
+    z-index: 2;
+}
+
+#buttonReiniciar{
+    text-align: center;
+}
+#div_podio{
+    text-align: center;
+}
+
+#buttonPodio {
+    display: none;
     width: 20%;
     margin: 10px auto;
     border: 10px solid #6e3507;
@@ -360,100 +460,38 @@ html {
     align-items: center;
 }
 
-#div_podio {
-    display: none;
-    width: 100%;
-    height: 90vh;
-    background-image: url(../img/fundo_madeira.png);
-    background-position: center;
-    background-size: cover;
-    padding-top: 10vh;
-    margin: 0 auto;
+#buttonPodio:hover {
+    transform: scale(1.05);
+    transition: .3s;
 }
-#div_ranking {
-    width: 80%;
-    height: 80%;
-    background-color: #FFBC6E;
-    margin: 0 auto;
+
+
+
+#btn-podio_reiniciar {
+    width: 20%;
+    margin: 10px auto;
     border: 10px solid #6e3507;
-    position: relative;
-}
-#topUm {
-    position: absolute;
-    bottom: 0%;
-    width: 25%;
-    height: 50%;
-    left: 37.5%;
-    background-color: #D89143;
-    padding-top: 20px;
-    z-index: 2;
-    text-align: center;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: #FFBC6E;
+    font-family: 'padrao';
     font-size: 30px;
-}
-#cvlUm {
-    position: absolute;
-    bottom: 53%;
-    width: 10%;
-    left: 44%;
-    z-index: 2;
-}
-#nomeUm {
-    position: absolute;
     text-align: center;
-    bottom: 80%;
-    width: 20%;
-    left: 40%;
-    z-index: 2;
-    font-size: 30px;
+    cursor: pointer;
+    transition: .3s;
+    margin: 20px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-#topDois {
-    position: absolute;
-    bottom: 0%;
-    width: 25%;
-    height: 25%;
-    left: 12.5%;
-    background-color: #D89143;
-    padding-top: 20px;  
-    text-align: center;
-    z-index: 1;
-    font-size: 30px;
+
+#btn-podio_reiniciar:hover {
+    transform: scale(1.05);
+    transition: .3s;
 }
-#cvlDois {
-    position: absolute;
-    bottom: 24%;
-    width: 10%;
-    left: 20%;
-    z-index: 2;
-}
-#nomeDois {
-    position: absolute;
-    text-align: center;
-    bottom: 54%;
-    width: 20%;
-    left: 15%;
-    z-index: 2;
-    font-size: 30px;
-}
-#topTres {
-    position: absolute;
-    bottom: 0%;
-    width: 25%;
-    height: 11%;
-    left: 62.5%;
-    background-color: #D89143;
-    padding-top: 20px;
-    z-index: 1;
-    text-align: center;
-    font-size: 30px;
-}
-#cvlTres {
-    position: absolute;
-    bottom: 9%;
-    width: 10%;
-    left: 70%;
-    z-index: 2;
-}
-#nomeTres {
+
+
+/* #nomeTres {
     position: absolute;
     text-align: center;
     bottom: 40%;
@@ -461,5 +499,4 @@ html {
     left: 65%;
     z-index: 2;
     font-size: 30px;
-}
-
+} */
