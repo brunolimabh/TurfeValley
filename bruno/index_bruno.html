@@ -11,12 +11,6 @@
 </head>
 
 <body>
-    <audio id="inicio">
-        <source src="audio_inicio.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="galopa">
-        <source src="galopa.mp3" type="audio/mpeg">
-    </audio>
     <div id="tela_inicio">
         <div id="campos_inicio">
             <h1>Turfe Valley</h1>
@@ -73,9 +67,10 @@
 
 <script>
 
-    var musicaInicio = document.getElementById("inicio");
-    musicaInicio.play()
-    var musicaGalopa = document.getElementById("galopa");
+    const trilhaSonora = new Audio("audio_inicio.mp3");
+    setTimeout(()=>{trilhaSonora.play();},1000)
+    const galopa = new Audio("galopa.mp3");
+
 
 
     var cavalos = [];
