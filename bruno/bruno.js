@@ -115,13 +115,14 @@ function darVoltas(volta) {
     volta++;
     if (volta > voltas) {
         for (let index = 0; index < qtdCavalos; index++) {
-            galopa.play()
+            galopa.play();
             document.documentElement.style.setProperty(`--cavalo${index}From`, cavalos[index].widths[volta - 1] + '%');
             document.documentElement.style.setProperty(`--cavalo${index}To`, cavalos[index].widths[volta - 1] + '%');
         }
         div_msg.innerHTML = 'Corrida encerrada!';
-        galopa.pause()
-        btnPodio.style.display = 'block'
+        galopa.pause();
+        btnPodio.style.display = 'block';
+        exibirHistorico();
         // if (index >= qtdCavalos) {
         //     alert("entrei no if")
         // }
@@ -137,10 +138,11 @@ function exibirCavalos() {
         var cavalo = document.createElement("img");
         var nome = document.createElement("span");
 
-        cavalo.setAttribute("src", `../img/cavalogif.gif`)
+        cavalo.setAttribute("src", `../img/cavalogif.gif`);
         cavalo.className = 'cavaloImgCorrida';
 
         nome.innerHTML = cavalos[i].nome;
+        nome.className = 'nome';
 
         divCorrida.id = 'corrida';
         cavalo.id = 'cavalogif' + i;
@@ -148,6 +150,44 @@ function exibirCavalos() {
         divCorrida.appendChild(nome);
         cavalos_correndo.appendChild(divCorrida);
     }
+
+    for (let index = 1; index < voltas; index++) {
+        let marcador = document.createElement("span");
+        marcador.className = 'marcadores';
+        marcador.style.left = (100 * index / voltas) + '%';
+        cavalos_correndo.appendChild(marcador);
+    }
+}
+
+function exibirHistorico() {
+    var texto = '<div class = "tabela"><div class="linha"><div>Volta</div>';
+
+    for (let index = 0; index < qtdCavalos; index++) {
+        texto += `<div>${cavalos[index].nome}</div>`;
+    }
+    texto += '</div>';
+    for (let volta = voltas; volta > 0; volta--) {
+        
+        texto += `<div class="linha"><div> ${volta} </div>`
+
+
+        for (let index = 0; index < qtdCavalos; index++) {
+            texto += `<div> ${cavalos[index].tempos[volta -1].toFixed(1)} </div>`
+        }
+
+        texto += '</div>'
+
+    }
+
+    texto += '<div class="linha"><div>Tempo</div>';
+    for (let index = 0; index < qtdCavalos; index++) {
+        texto += `<div>${cavalos[index].tempoTotal.toFixed(1)}</div>`
+    }
+    texto += '</div></div>';
+
+    div_historico.innerHTML = texto;
+
+    div_historico.style.display = 'block';
 }
 
 // podio
@@ -159,15 +199,28 @@ function exibirPodio() {
     cavalos.sort((a, b) => a.tempoTotal - b.tempoTotal);
 
     if (qtdCavalos == 2) {
-        nomeUm.innerHTML = `${cavalos[0].nome}  `;
+        nomeUm.innerHTML = `${cavalos[0].nome}`;
         nomeDois.innerHTML = `${cavalos[1].nome}`;
 
         tempoUm.innerHTML = `${(cavalos[0].tempoTotal).toFixed(2)}`;
         tempoDois.innerHTML = `${(cavalos[1].tempoTotal).toFixed(2)}`;
 
+        cvlUm.classList.add('primeiroCvl');
+        topUm.classList.add('primeiro');
+
+        if (cavalos[0].tempoTotal == cavalos[1].tempoTotal) {
+            cvlDois.classList.add('primeiroCvl');
+            topDois.classList.add('primeiro');
+            medalhaSegundo.src = '../img/first.png';
+        } else {
+            cvlDois.classList.add('segundoCvl');
+            topDois.classList.add('segundo');
+        }
+
         topTres.innerHTML = '';
         topTres.style.display = 'none';
-        let cavaloTres = document.getElementById("CavaloTopTres")
+        let cavaloTres = document.getElementById("cvlTres");
+        cavaloTres.src = '';
     } else {
         //nome dos vencedores
         nomeUm.innerHTML = `${cavalos[0].nome}  `;
@@ -177,6 +230,31 @@ function exibirPodio() {
         tempoUm.innerHTML = `${(cavalos[0].tempoTotal).toFixed(2)}`;
         tempoDois.innerHTML = `${(cavalos[1].tempoTotal).toFixed(2)}`;
         tempoTres.innerHTML = `${(cavalos[2].tempoTotal).toFixed(2)}`;
+
+        cvlUm.classList.add('primeiroCvl');
+        topUm.classList.add('primeiro');
+
+        if (cavalos[0].tempoTotal == cavalos[1].tempoTotal) {
+            cvlDois.classList.add('primeiroCvl');
+            topDois.classList.add('primeiro');
+            medalhaSegundo.src = '../img/first.png';
+        } else {
+            cvlDois.classList.add('segundoCvl');
+            topDois.classList.add('segundo');
+        }
+
+        if (cavalos[0].tempoTotal == cavalos[2].tempoTotal) {
+            cvlTres.classList.add('primeiroCvl');
+            topTres.classList.add('primeiro');
+            medalhaTerceiro.src = '../img/first.png';
+        } else if (cavalos[1].tempoTotal == cavalos[2].tempoTotal) {
+            cvlTres.classList.add('segundoCvl');
+            topTres.classList.add('segundo');
+            medalhaTerceiro.src = '../img/second.png';
+        } else {
+            cvlTres.classList.add('terceiroCvl');
+            topTres.classList.add('terceiro');
+        }
 
     }
 }

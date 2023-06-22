@@ -207,7 +207,7 @@ h2{
     background-size: cover;
     width: 90%;
     width: auto;
-    height: 150vh;
+    height: 200vh;
     padding-top: 10px;
 
 }
@@ -231,18 +231,26 @@ h2{
     background-color: #FFBC6E;
     border: 10px solid #6e3507;
 }
+
+.marcadores {
+    border-right: 3px solid #6e3507;
+    position: absolute;
+    height: 100%;
+}
+
 #cavalos_correndo {
     background-image: url(../img/fundo_grama.png);
     background-position: center;
     background-size: cover;
     width: 90%;
     margin: 0 auto;
+    height: fit-content;
     padding: 10px;
     border-radius: 5px;
     border: 10px solid #6e3507;
 }
 
-#cavalos_correndo span {
+#cavalos_correndo .nome {
     position: relative;
     left: 10%;
     color: rgba(255, 255, 255, 0.35);
@@ -342,7 +350,36 @@ h2{
 
 
 /* historico */
+#div_historico {
+    display: none;
+    width: 100%;
+    /* height: 90vh; */
+    background-image: url(../img/fundo_madeira.png);
+    background-position: center;
+    background-size: cover;
+    padding-top: 10vh;
+}
 
+.tabela{
+    display: flex;
+    flex-direction: column;
+    background-color: #FFBC6E;
+    margin: 0 auto;
+    border: 10px solid #6e3507;
+    border-radius: 5px;
+    justify-content: center;
+    width: fit-content;
+}
+.linha{
+    display: flex;
+}
+.linha div{
+    text-align: center;
+    border: 1px solid #6e3507;
+    padding: 10px;
+    width: 80px;
+    font-size: 24px;
+}
 
 
 /* podium */
@@ -379,60 +416,73 @@ h2{
 .infoPodium img{
     width: 20%;
 }
+
+.primeiro {
+    height: 55%;
+    background-color: #ecf027;
+}
 #topUm {
     position: absolute;
     bottom: 0%;
     width: 25%;
-    height: 55%;
     left: 37.5%;
-    background-color: #ecf027;
     padding-top: 20px;
     z-index: 2;
     border: black solid 1px;
     font-size: 23px;
 }
-#cvlUm {
-    position: absolute;
+.primeiroCvl {
     bottom: 57.5%;
     width: 10%;
+}
+#cvlUm {
+    position: absolute;
     left: 46%;
     z-index: 2;
+}
+.segundo {
+    height: 40%;
+    background-color: #d3c8bc;
 }
 #topDois {
     position: absolute;
     bottom: 0%;
     width: 25%;
-    height: 40%;
     left: 12.5%;
-    background-color: #d3c8bc;
     padding-top: 20px;  
     z-index: 1;
     border: black solid 1px;
     font-size: 23px;
 }
-#cvlDois {
-    position: absolute;
+.segundoCvl {
     bottom: 40%;
     width: 10%;
+}
+#cvlDois {
+    position: absolute;
     left: 20%;
     z-index: 2;
+}
+.terceiro {
+    height: 30%;
+    background-color: #D89143;
 }
 #topTres {
     position: absolute;
     bottom: 0%;
     width: 25%;
-    height: 30%;
     left: 62.5%;
-    background-color: #D89143;
     padding-top: 20px;
     z-index: 1;
     border: black solid 1px;
     font-size: 23px;
 }
-#cvlTres {
-    position: absolute;
+.terceiroCvl {
     bottom: 28%;
     width: 10%;
+}
+#cvlTres {
+    position: absolute;
     left: 70%;
     z-index: 2;
 }
