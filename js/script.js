@@ -80,7 +80,7 @@ function obterTempos() {
     for (let volta = 1; volta <= ax_voltas; volta++) {
         var tempoMin = 10 * ax_voltas;
         for (let index = 0; index < qtdCavalos; index++) {
-            var tempo = Number((Math.random() * 2 + 7).toFixed(1));
+            var tempo = Number((Math.random() * 0.2 + 7).toFixed(1));
             vt_cavalos[index].tempos.push(tempo);
             vt_cavalos[index].tempoTotal += tempo;
 
@@ -212,7 +212,7 @@ function exibirPodio() {
         if (vt_cavalos[0].tempoTotal.toFixed(1) == vt_cavalos[1].tempoTotal.toFixed(1)) {
             cvlDois.classList.add('primeiroCvl');
             topDois.classList.add('primeiro');
-            medalhaSegundo.src = '../img/first.png';
+            medalhaSegundo.src = 'img/first.png';
         } else {
             cvlDois.classList.add('segundoCvl');
             topDois.classList.add('segundo');
@@ -238,7 +238,7 @@ function exibirPodio() {
         if (vt_cavalos[0].tempoTotal.toFixed(1) == vt_cavalos[1].tempoTotal.toFixed(1)) {
             cvlDois.classList.add('primeiroCvl');
             topDois.classList.add('primeiro');
-            medalhaSegundo.src = '../img/first.png';
+            medalhaSegundo.src = 'img/first.png';
         } else {
             cvlDois.classList.add('segundoCvl');
             topDois.classList.add('segundo');
@@ -247,11 +247,11 @@ function exibirPodio() {
         if (vt_cavalos[0].tempoTotal.toFixed(1) == vt_cavalos[2].tempoTotal.toFixed(1)) {
             cvlTres.classList.add('primeiroCvl');
             topTres.classList.add('primeiro');
-            medalhaTerceiro.src = '../img/first.png';
+            medalhaTerceiro.src = 'img/first.png';
         } else if (vt_cavalos[1].tempoTotal.toFixed(1) == vt_cavalos[2].tempoTotal.toFixed(1)) {
             cvlTres.classList.add('segundoCvl');
             topTres.classList.add('segundo');
-            medalhaTerceiro.src = '../img/second.png';
+            medalhaTerceiro.src = 'img/second.png';
         } else {
             cvlTres.classList.add('terceiroCvl');
             topTres.classList.add('terceiro');
