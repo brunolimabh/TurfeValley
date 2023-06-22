@@ -45,7 +45,7 @@ function cadastrarCavalo() {
         var imgCavalo = document.createElement("img");
         var nomeCavalo = document.createElement("p");
 
-        imgCavalo.setAttribute("src", `../img/cavaloSV.png`)
+        imgCavalo.setAttribute("src", `img/topTres.png`)
         nomeCavalo.innerHTML = ax_nome;
         imgCavalo.className = 'cavaloImg';
         nomeCavalo.className = 'cavaloNome';
@@ -138,7 +138,7 @@ function exibirCavalos() {
         var cavalo = document.createElement("img");
         var nome = document.createElement("span");
 
-        cavalo.setAttribute("src", `../img/cavalogif.gif`);
+        cavalo.setAttribute("src", `img/cavalogif.gif`);
         cavalo.className = 'cavaloImgCorrida';
 
         nome.innerHTML = cavalos[i].nome;
