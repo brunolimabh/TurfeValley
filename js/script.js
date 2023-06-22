@@ -80,7 +80,7 @@ function obterTempos() {
     for (let volta = 1; volta <= ax_voltas; volta++) {
         var tempoMin = 10 * ax_voltas;
         for (let index = 0; index < qtdCavalos; index++) {
-            var tempo = Number((Math.random() * 0.2 + 7).toFixed(1));
+            var tempo = Number((Math.random() * 2 + 7).toFixed(1));
             vt_cavalos[index].tempos.push(tempo);
             vt_cavalos[index].tempoTotal += tempo;
 
