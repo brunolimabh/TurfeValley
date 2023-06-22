@@ -156,7 +156,7 @@ h2{
 
 
 #campo_cavalos {
-    width: 40%;
+    width: 30%;
     height: auto;
     padding: 10px;
     margin: 0 auto;
@@ -170,7 +170,7 @@ h2{
 }
 
 #cavalos {
-    width: 40%;
+    width: 30%;
 }
 
 #nomes {
@@ -204,10 +204,10 @@ h2{
     display: none;
     background-image: url(../img/fundo_madeira.png);
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     width: 90%;
     width: auto;
-    height: 200vh;
+    height: 210vh;
     padding-top: 10px;
 
 }

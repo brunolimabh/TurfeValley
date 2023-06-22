@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
     <title>Turfe Valley</title>
 </head>
 
@@ -15,7 +15,7 @@
         <source src="audio_inicio.mp3" type="audio/mpeg">
     </audio> -->
     <audio id="galopa" loop>
-        <source src="galopa.mp3" type="audio/mpeg">
+        <source src="audio/galopa.mp3" type="audio/mpeg">
     </audio>
     <!-- <audio id="largada">
         <source src="pipipi.mp3" type="audio/mpeg">
@@ -95,18 +95,17 @@
 </html>
 
 <script>
-    const trilhaSonora = new Audio("audio_inicio.mp3");
-    // setTimeout(()=>{trilhaSonora.play();},1000)
+    const trilhaSonora = new Audio("audio/audio_inicio.mp3");
     document.body.addEventListener("mousemove", function () {
         trilhaSonora.play().catch((erro) => { });
         // trilhaSonora.volume = 0.3;
     })
-    // const galopa = new Audio("galopa.mp3");
-    const largada = new Audio("pipipi.mp3")
-
+    const largada = new Audio("audio/pipipi.mp3")
+    largada.volume = 0.5
 
     var cavalos = [];
     var qtdCavalos = 0;
     var voltas = 0;
+    var lideres = [];
     var frases = ['A corrida vai começar em', '3', '2', '1', 'Começou!']
 </script>

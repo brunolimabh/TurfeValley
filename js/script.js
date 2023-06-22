@@ -1,4 +1,3 @@
-var lideres = [];
 
 function iniciar() {
     campos_inicio.style.display = 'none'
@@ -16,8 +15,8 @@ function validar() {
         alert('Insira uma quantidade de cavalos entre 2 e 6');
         erro = true;
     }
-    if (voltas < 1 || voltas > 5 || ipt_voltas.value == 0 || isNaN(voltas)) {
-        alert('Insira uma quantidade de voltas entre 1 e 5');
+    if (voltas < 1 || voltas > 10 || ipt_voltas.value == 0 || isNaN(voltas)) {
+        alert('Insira uma quantidade de voltas entre 1 e 10');
         erro = true;
     }
 
@@ -208,7 +207,7 @@ function exibirPodio() {
         cvlUm.classList.add('primeiroCvl');
         topUm.classList.add('primeiro');
 
-        if (cavalos[0].tempoTotal == cavalos[1].tempoTotal) {
+        if (cavalos[0].tempoTotal.toFixed(1) == cavalos[1].tempoTotal.toFixed(1)) {
             cvlDois.classList.add('primeiroCvl');
             topDois.classList.add('primeiro');
             medalhaSegundo.src = '../img/first.png';
@@ -234,7 +233,7 @@ function exibirPodio() {
         cvlUm.classList.add('primeiroCvl');
         topUm.classList.add('primeiro');
 
-        if (cavalos[0].tempoTotal == cavalos[1].tempoTotal) {
+        if (cavalos[0].tempoTotal.toFixed(1) == cavalos[1].tempoTotal.toFixed(1)) {
             cvlDois.classList.add('primeiroCvl');
             topDois.classList.add('primeiro');
             medalhaSegundo.src = '../img/first.png';
@@ -243,11 +242,11 @@ function exibirPodio() {
             topDois.classList.add('segundo');
         }
 
-        if (cavalos[0].tempoTotal == cavalos[2].tempoTotal) {
+        if (cavalos[0].tempoTotal.toFixed(1) == cavalos[2].tempoTotal.toFixed(1)) {
             cvlTres.classList.add('primeiroCvl');
             topTres.classList.add('primeiro');
             medalhaTerceiro.src = '../img/first.png';
-        } else if (cavalos[1].tempoTotal == cavalos[2].tempoTotal) {
+        } else if (cavalos[1].tempoTotal.toFixed(1) == cavalos[2].tempoTotal.toFixed(1)) {
             cvlTres.classList.add('segundoCvl');
             topTres.classList.add('segundo');
             medalhaTerceiro.src = '../img/second.png';
