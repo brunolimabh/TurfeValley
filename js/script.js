@@ -31,7 +31,7 @@ function cadastrarCavalo() {
     if (ax_nome.length <= 0) {
         alert(`Coloque o nome do cavalo`)
     } else {
-        cavalos.push(
+       vt_cavalos.push(
             {
                 tempoTotal: 0,
                 tempos: [],
@@ -81,18 +81,18 @@ function obterTempos() {
         var tempoMin = 10 * voltas;
         for (let index = 0; index < qtdCavalos; index++) {
             var tempo = Number((Math.random() * 2 + 7).toFixed(1));
-            cavalos[index].tempos.push(tempo);
-            cavalos[index].tempoTotal += tempo;
+            vt_cavalos[index].tempos.push(tempo);
+            vt_cavalos[index].tempoTotal += tempo;
 
-            if (cavalos[index].tempoTotal < tempoMin) {
-                tempoMin = cavalos[index].tempoTotal
+            if (vt_cavalos[index].tempoTotal < tempoMin) {
+                tempoMin = vt_cavalos[index].tempoTotal
             }
         }
         for (let index = 0; index < qtdCavalos; index++) {
-            cavalos[index].widths.push((94 * volta / voltas) - 4 * (cavalos[index].tempoTotal - tempoMin))
+            vt_cavalos[index].widths.push((94 * volta / voltas) - 4 * (vt_cavalos[index].tempoTotal - tempoMin))
 
-            if (cavalos[index].tempoTotal == tempoMin && lideres.length < volta) {
-                lideres.push(cavalos[index].nome);
+            if (vt_cavalos[index].tempoTotal == tempoMin && lideres.length < volta) {
+                lideres.push(vt_cavalos[index].nome);
             }
         }
     }
@@ -195,7 +195,7 @@ function exibirPodio() {
     div_podio.style.display = 'block';
     trilhaSonora.play();
 
-    cavalos.sort((a, b) => a.tempoTotal - b.tempoTotal);
+   vt_cavalos.sort((a, b) => a.tempoTotal - b.tempoTotal);
 
     if (qtdCavalos == 2) {
         nomeUm.innerHTML = `${cavalos[0].nome}`;
