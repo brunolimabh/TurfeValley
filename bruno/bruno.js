@@ -40,6 +40,7 @@ function cadastrarCavalo() {
                 widths: [0]
             }
         )
+       
         var divCavalos = document.getElementById('cavalos')
         var divNomes = document.getElementById('nomes')
         var imgCavalo = document.createElement("img");
@@ -159,14 +160,16 @@ function exibirPodio() {
     div_podio.style.display = 'block';
     trilhaSonora.play();
 
-    for (let index = 0; index < array.length; index++) {
-        const element = array[index];
-        
-    }
+    cavalos.sort((a,b) => a.tempoTotal - b.tempoTotal);
 
-    nomeUm.innerHTML = `${cavalo[0].nome} <br> ${cavalo[0].tempoTotal}`;
-    nomeDois.innerHTML = `${cavalo[1].nome} <br> ${cavalo[1].tempoTotal}`;
-    nomeTres.innerHTML = `${cavalo[2].nome} <br> ${cavalo[2].tempoTotal}`;
+    //nome dos vencedores
+    nomeUm.innerHTML = `${cavalos[0].nome}  `;
+    nomeDois.innerHTML = `${cavalos[1].nome}`;
+    nomeTres.innerHTML = `${cavalos[2].nome}`;
+    // tempo dos vencedores
+    tempoUm.innerHTML = `${(cavalos[0].tempoTotal).toFixed(2)}`;
+    tempoDois.innerHTML = `${(cavalos[1].tempoTotal).toFixed(2)}`;
+    tempoTres.innerHTML = `${(cavalos[2].tempoTotal).toFixed(2)}`;
 }
 
 function reiniciar() {
