@@ -194,6 +194,8 @@ function exibirPodio() {
     div_corrida.style.display = 'none';
     div_podio.style.display = 'block';
     trilhaSonora.play();
+    palmas.play();
+
 
    vt_cavalos.sort((a, b) => a.tempoTotal - b.tempoTotal);
 
