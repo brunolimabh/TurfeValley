@@ -342,6 +342,24 @@ html {
 
 
 /* podium */
+.btn-podio_reiniciar {
+    width: 20%;
+    margin: 10px auto;
+    border: 10px solid #6e3507;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: #FFBC6E;
+    font-family: 'padrao';
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #div_podio {
     display: none;
     width: 100%;
@@ -350,6 +368,7 @@ html {
     background-position: center;
     background-size: cover;
     padding-top: 10vh;
+    margin: 0 auto;
 }
 #div_ranking {
     width: 80%;
@@ -443,3 +462,4 @@ html {
     z-index: 2;
     font-size: 30px;
 }
+

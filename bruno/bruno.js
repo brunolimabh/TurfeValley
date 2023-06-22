@@ -149,3 +149,7 @@ function exibirPodio() {
     nomeDois.innerHTML = `${cavalo[1].nome} <br> ${cavalo[1].tempoTotal}`;
     nomeTres.innerHTML = `${cavalo[2].nome} <br> ${cavalo[2].tempoTotal}`;
 }
+
+function reiniciar() {
+    location.reload()
+}
