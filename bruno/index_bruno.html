@@ -11,11 +11,14 @@
 </head>
 
 <body>
-    <audio id="inicio">
+    <audio id="inicio" loop>
         <source src="audio_inicio.mp3" type="audio/mpeg">
     </audio>
-    <audio id="galopa">
+    <audio id="galopa" loop>
         <source src="galopa.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="largada">
+        <source src="pipipi.mp3" type="audio/mpeg">
     </audio>
     <div id="tela_inicio">
         <div id="campos_inicio">
@@ -74,8 +77,8 @@
 <script>
 
     var musicaInicio = document.getElementById("inicio");
-    musicaInicio.play()
     var musicaGalopa = document.getElementById("galopa");
+    var largada = document.getElementById("largada");
 
 
     var cavalos = [];

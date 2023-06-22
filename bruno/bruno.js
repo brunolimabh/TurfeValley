@@ -3,6 +3,8 @@ var lideres = [];
 function iniciar() {
     campos_inicio.style.display = 'none'
     quest.style.display = 'block'
+    musicaInicio.play()
+    musicaInicio.volume = 0.3;
 }
 
 function validar() {
@@ -58,17 +60,18 @@ function cadastrarCavalo() {
         campo_nomes.style.display = 'none';
         aguardeMsg.style.display = 'block';
         obterTempos();
-        setTimeout( ()=> {
+        setTimeout(() => {
             tela_inicio.style.display = 'none';
             div_corrida.style.display = 'block';
             for (let i = 0; i < frases.length; i++) {
-                setTimeout(()=>{
+                setTimeout(() => {
                     div_msg.innerHTML = frases[i]
-                },1000*i)
+                }, 1000 * i)
             }
             exibirCavalos();
             musicaInicio.pause();
-            setTimeout(()=>{darVoltas(0)}, 4000);
+            setTimeout(() => {largada.play()},200)
+            setTimeout(() => {darVoltas(0)}, 4000);
         }, 3000)
     }
 }
@@ -96,12 +99,14 @@ function obterTempos() {
 }
 
 function darVoltas(volta) {
+    largada.pause();
     if (volta > 0 && volta < voltas) {
         div_msg.innerHTML = `Volta ${volta} - ${lideres[volta - 1]} está liderando!`;
     }
     for (let index = 0; index < qtdCavalos; index++) {
+        musicaGalopa.play()
         document.documentElement.style.setProperty(`--cavalo${index}From`, cavalos[index].widths[volta] + '%');
-        document.documentElement.style.setProperty(`--cavalo${index}To`, cavalos[index].widths[volta+1] + '%');
+        document.documentElement.style.setProperty(`--cavalo${index}To`, cavalos[index].widths[volta + 1] + '%');
         let imgCavalo = document.getElementById('cavalogif' + index);
         if (volta == 0) {
             imgCavalo.classList.add('cavaloAnimacao' + index);
@@ -110,13 +115,15 @@ function darVoltas(volta) {
     volta++;
     if (volta > voltas) {
         for (let index = 0; index < qtdCavalos; index++) {
-            document.documentElement.style.setProperty(`--cavalo${index}From`, cavalos[index].widths[volta-1] + '%');
-            document.documentElement.style.setProperty(`--cavalo${index}To`, cavalos[index].widths[volta-1] + '%');
+            musicaGalopa.play()
+            document.documentElement.style.setProperty(`--cavalo${index}From`, cavalos[index].widths[volta - 1] + '%');
+            document.documentElement.style.setProperty(`--cavalo${index}To`, cavalos[index].widths[volta - 1] + '%');
         }
         div_msg.innerHTML = 'Corrida encerrada!';
+        musicaGalopa.pause()
         exibirHistorico();
     } else {
-        setTimeout(()=>{darVoltas(volta) }, 5000);
+        setTimeout(() => { darVoltas(volta) }, 5000);
     }
 }
 
