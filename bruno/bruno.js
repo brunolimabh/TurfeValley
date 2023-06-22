@@ -164,6 +164,10 @@ function exibirPodio() {
 
         tempoUm.innerHTML = `${(cavalos[0].tempoTotal).toFixed(2)}`;
         tempoDois.innerHTML = `${(cavalos[1].tempoTotal).toFixed(2)}`;
+
+        topTres.innerHTML = '';
+        topTres.style.display = 'none';
+        let cavaloTres = document.getElementById("CavaloTopTres")
     } else {
         //nome dos vencedores
         nomeUm.innerHTML = `${cavalos[0].nome}  `;
