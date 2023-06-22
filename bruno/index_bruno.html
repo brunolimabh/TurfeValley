@@ -68,7 +68,10 @@
 <script>
 
     const trilhaSonora = new Audio("audio_inicio.mp3");
-    setTimeout(()=>{trilhaSonora.play();},1000)
+    // setTimeout(()=>{trilhaSonora.play();},1000)
+    document.body.addEventListener("mousemove", function () {
+        trilhaSonora.play().catch((erro)=>{});
+    })
     const galopa = new Audio("galopa.mp3");
 
 
