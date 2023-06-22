@@ -67,7 +67,7 @@ function cadastrarCavalo() {
                 },1000*i)
             }
             exibirCavalos();
-            musicaInicio.pause();
+            trilhaSonora.pause();
             setTimeout(()=>{darVoltas(0)}, 4000);
         }, 3000)
     }
@@ -144,7 +144,7 @@ function exibirCavalos() {
 function exibirPodio() {
     div_corrida.style.display = 'none';
     div_podio.style.display = 'block';
-    musicaInicio.play();
+    trilhaSonora.play();
 
     nomeUm.innerHTML = `${cavalo[0].nome} <br> ${cavalo[0].tempoTotal}`;
     nomeDois.innerHTML = `${cavalo[1].nome} <br> ${cavalo[1].tempoTotal}`;
