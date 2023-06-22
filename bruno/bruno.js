@@ -144,6 +144,7 @@ function exibirCavalos() {
 function exibirPodio() {
     div_corrida.style.display = 'none';
     div_podio.style.display = 'block';
+    musicaInicio.play()
 
     nomeUm.innerHTML = `${cavalo[0].nome} <br> ${cavalo[0].tempoTotal}`;
     nomeDois.innerHTML = `${cavalo[1].nome} <br> ${cavalo[1].tempoTotal}`;
