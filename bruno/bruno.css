@@ -466,8 +466,10 @@ h2{
 }
 
 
-
-#btn-podio_reiniciar {
+#btnPodio {
+    display: none;
+}
+#btnPodio, #btnReiniciar {
     width: 20%;
     margin: 10px auto;
     border: 10px solid #6e3507;
@@ -480,12 +482,12 @@ h2{
     cursor: pointer;
     transition: .3s;
     margin: 20px auto 0 auto;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
-#btn-podio_reiniciar:hover {
+#btnPodio:hover, #btnReiniciar:hover {
     transform: scale(1.05);
     transition: .3s;
 }

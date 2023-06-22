@@ -120,15 +120,11 @@ function darVoltas(volta) {
             document.documentElement.style.setProperty(`--cavalo${index}To`, cavalos[index].widths[volta - 1] + '%');
         }
         div_msg.innerHTML = 'Corrida encerrada!';
-
-        if (index >= qtdCavalos) {
-            alert("entrei no if")
-            galopa.pause()
-
-            buttonPodio.style.display  ='block'
-        }
-        
-        
+        galopa.pause()
+        btnPodio.style.display  ='block'
+        // if (index >= qtdCavalos) {
+        //     alert("entrei no if")
+        // }
     } else {
         setTimeout(() => { darVoltas(volta) }, 5000);
     }

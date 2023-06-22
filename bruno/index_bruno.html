@@ -53,26 +53,32 @@
         <div id="cavalos_correndo">
 
         </div id="div_podio">
-        <button  id="buttonPodio" onclick="exibirPodio()">Exibir pódio</button>
+        <button id="btnPodio" onclick="exibirPodio()">Exibir pódio</button>
     </div>
     <div id="div_podio">
         <div id="div_ranking">
             <img id="confete" src="../img/confete.gif" alt="">
             <div id="topUm">
-                
-                <div class="infoPodium" id="nomeUm"><h2>Nome do Cavalo</h2></div>
+
+                <div class="infoPodium" id="nomeUm">
+                    <h2>Nome do Cavalo</h2>
+                </div>
                 <div class="infoPodium" id="tempoUm">Velocidade Total</div>
                 <div class="infoPodium"><img src="../img/first.png" alt=""></div>
             </div>
             <div id="topDois">
-                
-                <div class="infoPodium" id="nomeDois"><h2>Nome do Cavalo</h2></div>
+
+                <div class="infoPodium" id="nomeDois">
+                    <h2>Nome do Cavalo</h2>
+                </div>
                 <div class="infoPodium" id="tempoDois">Velocidade Total</div>
                 <div class="infoPodium"><img src="../img/second.png" alt=""></div>
             </div>
             <div id="topTres">
-                
-                <div class="infoPodium" id="nomeTres"><h2>Nome do Cavalo</h2></div>
+
+                <div class="infoPodium" id="nomeTres">
+                    <h2>Nome do Cavalo</h2>
+                </div>
                 <div class="infoPodium" id="tempoTres">Velocidade Total</div>
                 <div class="infoPodium"><img src="../img/third.png" alt=""></div>
             </div>
@@ -83,8 +89,8 @@
             <p id="nomeDois"></p>
             <p id="nomeTres"></p> -->
         </div>
-        <div id="buttonReiniciar">
-            <button id="btn-podio_reiniciar" onclick="reiniciar()" >Reiniciar</button>
+        <div>
+            <button id="btnReiniciar" onclick="reiniciar()">Reiniciar</button>
         </div>
     </div>
 
@@ -96,7 +102,7 @@
     const trilhaSonora = new Audio("audio_inicio.mp3");
     // setTimeout(()=>{trilhaSonora.play();},1000)
     document.body.addEventListener("mousemove", function () {
-        trilhaSonora.play().catch((erro)=>{});
+        trilhaSonora.play().catch((erro) => { });
         // trilhaSonora.volume = 0.3;
     })
     // const galopa = new Audio("galopa.mp3");
