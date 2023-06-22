@@ -1,3 +1,19 @@
+.root {
+    --cavalo1From: 0%;
+    --cavalo1To: 0%;
+    --cavalo2From: 0%;
+    --cavalo2To: 0%;
+    --cavalo3From: 0%;
+    --cavalo3To: 0%;
+    --cavalo4From: 0%;
+    --cavalo4To: 0%;
+    --cavalo5From: 0%;
+    --cavalo5To: 0%;
+    --cavalo0From: 0%;
+    --cavalo0To: 0%;
+}
+
+
 @font-face {
     font-family: 'Stardew';
     src: url(../font/Stardew-Valley-All-Caps.ttf);
@@ -219,6 +235,104 @@ html {
     padding: 10px;
     border-radius: 5px;
     border: 10px solid #6e3507;
+}
+
+#cavalos_correndo span {
+    position: relative;
+    left: 10%;
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 80px;
+}
+
+.cavaloImgCorrida {
+    position: relative;
+    top: 0;
+    width: 80px;
+    z-index: 10;
+}
+
+.cavaloAnimacao0 {
+    animation: cavalo0 5s linear infinite;
+}
+
+.cavaloAnimacao1 {
+    animation: cavalo1 5s linear infinite;
+}
+
+.cavaloAnimacao2 {
+    animation: cavalo2 5s linear infinite;
+}
+
+.cavaloAnimacao3 {
+    animation: cavalo3 5s linear infinite;
+}
+
+.cavaloAnimacao4 {
+    animation: cavalo4 5s linear infinite;
+}
+
+.cavaloAnimacao5 {
+    animation: cavalo5 5s linear infinite;
+}
+
+@keyframes cavalo0 {
+    from {
+        left: var(--cavalo0From);
+    }
+
+    to {
+        left: var(--cavalo0To);
+    }
+}
+
+@keyframes cavalo1 {
+    from {
+        left: var(--cavalo1From);
+    }
+
+    to {
+        left: var(--cavalo1To);
+    }
+}
+
+@keyframes cavalo2 {
+    from {
+        left: var(--cavalo2From);
+    }
+
+    to {
+        left: var(--cavalo2To);
+    }
+}
+
+@keyframes cavalo3 {
+    from {
+        left: var(--cavalo3From);
+    }
+
+    to {
+        left: var(--cavalo3To);
+    }
+}
+
+@keyframes cavalo4 {
+    from {
+        left: var(--cavalo4From);
+    }
+
+    to {
+        left: var(--cavalo4To);
+    }
+}
+
+@keyframes cavalo5 {
+    from {
+        left: var(--cavalo5From);
+    }
+
+    to {
+        left: var(--cavalo5To);
+    }
 }
 
 

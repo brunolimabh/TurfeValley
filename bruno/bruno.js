@@ -1,3 +1,5 @@
+var lideres = [];
+
 function iniciar() {
     campos_inicio.style.display = 'none'
     quest.style.display = 'block'
@@ -34,7 +36,7 @@ function cadastrarCavalo() {
                 tempoTotal: 0,
                 tempos: [],
                 nome: ax_nome,
-                widths: []
+                widths: [0]
             }
         )
         var divCavalos = document.getElementById('cavalos')
@@ -65,8 +67,8 @@ function cadastrarCavalo() {
                 },1000*i)
             }
             exibirCavalos();
-            musicaInicio.pause()
-            darVoltas(0)
+            musicaInicio.pause();
+            setTimeout(()=>{darVoltas(0)}, 4000);
         }, 3000)
     }
 }
@@ -84,22 +86,34 @@ function obterTempos() {
             }
         }
         for (let index = 0; index < qtdCavalos; index++) {
-            cavalos[index].widths.push((95 * volta / voltas) - 3 * (cavalos[index].tempoTotal - tempoMin))
+            cavalos[index].widths.push((94 * volta / voltas) - 4 * (cavalos[index].tempoTotal - tempoMin))
+
+            if (cavalos[index].tempoTotal == tempoMin && lideres.length < volta) {
+                lideres.push(cavalos[index].nome);
+            }
         }
     }
 }
 
 function darVoltas(volta) {
+    if (volta > 0 && volta < voltas) {
+        div_msg.innerHTML = `Volta ${volta} - ${lideres[volta - 1]} está liderando!`;
+    }
     for (let index = 0; index < qtdCavalos; index++) {
-        let imgCavalo = document.getElementById('cavalogif' + index);
-        if (index == 0) {
-            imgCavalo.style.listStyle.add('cavaloAnim' + index);
-        }
         document.documentElement.style.setProperty(`--cavalo${index}From`, cavalos[index].widths[volta] + '%');
         document.documentElement.style.setProperty(`--cavalo${index}To`, cavalos[index].widths[volta+1] + '%');
+        let imgCavalo = document.getElementById('cavalogif' + index);
+        if (volta == 0) {
+            imgCavalo.classList.add('cavaloAnimacao' + index);
+        }
     }
     volta++;
-    if (volta == voltas) {
+    if (volta > voltas) {
+        for (let index = 0; index < qtdCavalos; index++) {
+            document.documentElement.style.setProperty(`--cavalo${index}From`, cavalos[index].widths[volta-1] + '%');
+            document.documentElement.style.setProperty(`--cavalo${index}To`, cavalos[index].widths[volta-1] + '%');
+        }
+        div_msg.innerHTML = 'Corrida encerrada!';
         exibirHistorico();
     } else {
         setTimeout(()=>{darVoltas(volta) }, 5000);
@@ -111,13 +125,17 @@ function exibirCavalos() {
     for (let i = 0; i < qtdCavalos; i++) {
         var divCorrida = document.createElement("div");
         var cavalo = document.createElement("img");
+        var nome = document.createElement("span");
 
         cavalo.setAttribute("src", `../img/cavalogif.gif`)
-        cavalo.className = 'cavaloImg' + i;
+        cavalo.className = 'cavaloImgCorrida';
+
+        nome.innerHTML = cavalos[i].nome;
 
         divCorrida.id = 'corrida';
         cavalo.id = 'cavalogif' + i;
         divCorrida.appendChild(cavalo);
+        divCorrida.appendChild(nome);
         cavalos_correndo.appendChild(divCorrida);
     }
 }
