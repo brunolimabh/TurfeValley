@@ -74,6 +74,7 @@ function cadastrarCavalo() {
             setTimeout(() => { darVoltas(0) }, 4000);
         }, 3000)
     }
+    ipt_cavalo.focus();
 }
 
 function obterTempos() {
@@ -150,7 +151,6 @@ function exibirCavalos() {
         divCorrida.appendChild(nome);
         cavalos_correndo.appendChild(divCorrida);
     }
-
     for (let index = 1; index < voltas; index++) {
         let marcador = document.createElement("span");
         marcador.className = 'marcadores';

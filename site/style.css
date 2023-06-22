@@ -179,12 +179,12 @@ h2{
 }
 
 .cavaloImg {
-    width: 80px;
+    width: 70px;
 }
 
 .cavaloNome {
     padding-bottom: 7px;
-    height: 80px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -233,12 +233,14 @@ h2{
 }
 
 .marcadores {
-    border-right: 3px solid #6e3507;
+    border-right: 3px solid rgba(255, 255, 255, 0.5);
     position: absolute;
     height: 100%;
+    top: 0;
 }
 
 #cavalos_correndo {
+    position: relative;
     background-image: url(../img/fundo_grama.png);
     background-position: center;
     background-size: cover;
@@ -253,8 +255,9 @@ h2{
 #cavalos_correndo .nome {
     position: relative;
     left: 10%;
-    color: rgba(255, 255, 255, 0.35);
+    color: #FFBC6E;
     font-size: 80px;
+    z-index: 5;
 }
 
 .cavaloImgCorrida {
